@@ -1,5 +1,8 @@
+//box containing user text
 var inText = document.getElementById("inText");
+//div containing generated fields
 var inGen = document.getElementById("inGen");
+//span containing the output text
 var outText = document.getElementById("outText");
 //Holds output
 var out = "";
@@ -52,6 +55,7 @@ function genFlds(){
 
 		l = document.createElement("INPUT");
 		l.setAttribute("type", "text");
+		l.setAttribute("id", "fld" + fields[i]);
 		inGen.appendChild(l);
 
 		l = document.createElement("BR");
