@@ -1,9 +1,24 @@
 <!DOCTYPE html>
 <html>
+<head>
+</head>
 <body>
-<label for="inText">Input Text:</label><br>
-<textarea id="inText" name="inText" rows="10" cols="30">Input text goes here.</textarea><br>
-<label>Output Text:</label><br>
-<p id="outText">Output text goes here.</p>
+	<!--Input-->
+	<label for="inText">Input Text:</label><br>
+	<textarea id="inText" name="inText" rows="10" cols="30">Input text goes here.</textarea><br>
+	<button id="updateBtn" onclick="genFlds()">Generate Fields</button><br>
+	<!--Generated Input-->
+	<label>Generated Fields:</label>
+	<div id="inGen"></div>
+	<!--Output-->
+	<button id="updateBtn" onclick="genOut()">Generate Output</button><br>
+	<label>Output Text:</label><br>
+	<span id="outText">Output text goes here.</span><br>
+	<!--MailTo-->
+	<label for="mail">Send to E-mail:</label>
+	<input type="email" name="mail"><br>
+	<button id="mailBtn" onclick="mail()">Send E-Mail</button>
+	<!--script-->
+	<script type="text/javascript" src="email-generator.js"></script>
 </body>
 </html>
