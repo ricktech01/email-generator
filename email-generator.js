@@ -40,7 +40,23 @@ function genFlds(){
 		}
 
 	}
-	console.log(fields)
+	//Clear fields
+	while (inGen.firstChild){
+		inGen.removeChild(inGen.firstChild);
+	}
+	//Generate Fields
+	for (i = 0; i < fields.length; i++){
+		l = document.createElement("LABEL");
+		l.appendChild(document.createTextNode(fields[i]+":"));
+		inGen.appendChild(l);
+
+		l = document.createElement("INPUT");
+		l.setAttribute("type", "text");
+		inGen.appendChild(l);
+
+		l = document.createElement("BR");
+		inGen.appendChild(l);
+	}
 }
 //called when clicking 'Generate Output' button
 //generates output in outText
