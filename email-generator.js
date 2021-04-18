@@ -4,6 +4,9 @@ var inText = document.getElementById("inText");
 var inGen = document.getElementById("inGen");
 //span containing the output text
 var outText = document.getElementById("outText");
+//inputs for email & subject
+var mail = document.getElementById("mail");
+var sub = document.getElementById("sub");
 //Holds output
 var out = "";
 //Holds the entered fields
@@ -95,6 +98,6 @@ function genOut(){
 
 //called when clicking 'Send E-mail' button
 //sends an email using generated output to address in 'mail' feild
-function mail(){
-
+function sendMail(){
+	window.open('mailto:'+mail.value+'?subject='+sub.value+'&body='+outText.innerText);
 }

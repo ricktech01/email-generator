@@ -16,8 +16,10 @@
 	<span id="outText">Output text goes here.</span><br>
 	<!--MailTo-->
 	<label for="mail">Send to E-mail:</label>
-	<input type="email" name="mail"><br>
-	<button id="mailBtn" onclick="mail()">Send E-Mail</button>
+	<input type="email" name="mail" id="mail"><br>
+	<label for="sub">E-mail Subject:</label>
+	<input type="text" name="sub" id="sub"><br>
+	<button id="mailBtn" onclick="sendMail()">Send E-Mail</button>
 	<!--script-->
 	<script type="text/javascript" src="email-generator.js"></script>
 </body>
