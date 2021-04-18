@@ -66,7 +66,33 @@ function genFlds(){
 //generates output in outText
 function genOut(){
 
-}
+	var text = inText.value;
+
+	for(c = 0; c < fields.length; c++){
+		search = "[" + fields[c] + "]";
+		searchReplace = document.getElementById("fld" + fields[c]).value;
+		searchIndex = text.indexOf(search);
+
+		text = text.substring(0, searchIndex) + searchReplace + text.substring(searchIndex + search.length);
+
+		text.replace(search, searchReplace);
+	}
+
+	text.replaceAll('\\', "");
+
+	for(x = 0; x < text.length; x++){
+		if(text[x] == '\\'){
+			text = text.substring(0, x) + text.substring(x + 1);
+		}
+	}
+
+	outText.innerText = text;
+	
+}//end of function
+
+
+
+
 //called when clicking 'Send E-mail' button
 //sends an email using generated output to address in 'mail' feild
 function mail(){
