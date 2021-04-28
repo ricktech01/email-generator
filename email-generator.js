@@ -65,10 +65,42 @@ function genFlds(){
 		inGen.appendChild(l);
 	}
 }
+//used to replace strings strA with strB in given text
+function rep(strA, strB, text){
+	var temp="";
+	var r = false;
+	var s = "";
+	for (var i = 0; i < text.length; i++){
+		if (r){
+			s+= text[i];
+			if (text[i] == ']' && text[i-1] != '\\'){
+				r = false;
+				if (strA == s.substring(1,s.length-1))
+					s = strB;
+				temp += s;
+				s = "";
+			}
+		} else {
+			if (text[i]=='[' && i > 0 && text[i-1] != '\\'){
+				r = true;
+				s += '[';
+			} else {
+				temp += text[i];
+			}
+		}
+	}
+	return temp;
+}
 //called when clicking 'Generate Output' button
 //generates output in outText
 function genOut(){
-
+	var temp = inText.value;
+	for (var i = 0; i < fields.length; i ++){
+		var inVal = document.getElementById("fld"+fields[i]).value;
+		temp = rep(fields[i],inVal, temp);
+		alert(fields[i] + "-" + temp)
+	}
+	outText.innerHTML = temp.replace('\\', '');
 }
 //called when clicking 'Send E-mail' button
 //sends an email using generated output to address in 'mail' feild

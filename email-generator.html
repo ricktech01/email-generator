@@ -5,7 +5,19 @@
 <body>
 	<!--Input-->
 	<label for="inText">Input Text:</label><br>
-	<textarea id="inText" name="inText" rows="10" cols="30">Input [text] \[goes] [here] [.</textarea><br>
+	<textarea id="inText" name="inText" rows="18" cols="50">Dear [user],
+This is a tool that allows you to generate text templates, to fill and email.
+
+You simply write your message here, and use brackets to create placeholders for input fields like so: [data]
+
+If you want to use brackets without creating a field, use a \ before the bracket like so: \[data]
+
+You can create multiple fields like so: [data1] [data2] or Use the same field multiple times: [data3] [data3].
+
+Once you are done typing your message, click 'Generate Fields' to generate input fields.
+
+After you enter all the values, you can click 'Generate Text' to generate the message replacing all placeholders with the data you entered.
+	</textarea><br>
 	<button id="updateBtn" onclick="genFlds()">Generate Fields</button><br>
 	<!--Generated Input-->
 	<label>Generated Fields:</label>
@@ -13,7 +25,7 @@
 	<!--Output-->
 	<button id="updateBtn" onclick="genOut()">Generate Output</button><br>
 	<label>Output Text:</label><br>
-	<span id="outText">Output text goes here.</span><br>
+	<p style="border:solid 2px black; padding: 2%;" id="outText">Output text goes here.</p><br>
 	<!--MailTo-->
 	<label for="mail">Send to E-mail:</label>
 	<input type="email" name="mail" id="mail"><br>
