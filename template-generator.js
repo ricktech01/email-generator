@@ -11,7 +11,7 @@ var sub = document.getElementById("sub");
 var out = "";
 //Holds the entered fields
 var fields = []
-//called when clicking 'Generate Fields' button
+//called when clicking 'Generate Input Fields' button
 //reads text and generates input Boxes inside the 'inGen' div
 function genFlds(){
 	var text = inText.value;
@@ -96,7 +96,7 @@ function rep(strA, strB, text){
 	}
 	return temp;
 }
-//called when clicking 'Generate Output' button
+//called when clicking 'Generate Template' button
 //generates output in outText
 function genOut(){
 	//replace placeholders with input values
