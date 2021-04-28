@@ -99,11 +99,18 @@ function rep(strA, strB, text){
 //called when clicking 'Generate Output' button
 //generates output in outText
 function genOut(){
+	//replace placeholders with input values
 	var temp = inText.value;
 	for (var i = 0; i < fields.length; i ++){
 		var inVal = document.getElementById("fld"+fields[i]).value;
 		temp = rep(fields[i],inVal, temp);
 	}
+
+	//replace all newlines
+	while (temp.includes('\n')) {
+		temp = temp.replace('\n', "<br>");
+	}
+
 	outText.innerHTML = temp.replace('\\', '');
 }
 //called when clicking 'Send E-mail' button
