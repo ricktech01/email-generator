@@ -29,7 +29,8 @@ function genFlds(){
 						fld += text[i];
 						continue;
 					}
-				fields.push(fld);
+				if (!fields.includes(fld))
+					fields.push(fld);
 				fld = "";
 				readingFld = false;
 				continue;
@@ -71,6 +72,7 @@ function rep(strA, strB, text){
 	var r = false;
 	var s = "";
 	for (var i = 0; i < text.length; i++){
+		//if reading a placeholder
 		if (r){
 			s+= text[i];
 			if (text[i] == ']' && text[i-1] != '\\'){
@@ -80,10 +82,13 @@ function rep(strA, strB, text){
 				temp += s;
 				s = "";
 			}
+			//not reading a placeholder
 		} else {
+			//found a placeholder
 			if (text[i]=='[' && i > 0 && text[i-1] != '\\'){
 				r = true;
 				s += '[';
+				//reading normally
 			} else {
 				temp += text[i];
 			}
@@ -98,7 +103,6 @@ function genOut(){
 	for (var i = 0; i < fields.length; i ++){
 		var inVal = document.getElementById("fld"+fields[i]).value;
 		temp = rep(fields[i],inVal, temp);
-		alert(fields[i] + "-" + temp)
 	}
 	outText.innerHTML = temp.replace('\\', '');
 }
